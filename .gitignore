@@ -1,0 +1,6 @@
+instance/**
+env/**
+log/**
+**/*.pyc
+**/*.swp
+**/*.ini

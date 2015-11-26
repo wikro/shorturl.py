@@ -1,0 +1,5 @@
+﻿{% extends 'layout.html' %}
+{% block content %}
+<input type="text" name="short_url" id="short_url" value="{{ short_url }}" onfocus="this.select()" autofocus>
+<button id="back" onclick="location.href='{{ url_for('index') }}'">back</button>
+{% endblock %}

@@ -1,0 +1,17 @@
+body {
+	font-family: sans-serif;
+}
+
+#wrap {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+input {
+	width: 150px;
+}
+
+button {
+	width: 50px;
+}

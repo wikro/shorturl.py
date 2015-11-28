@@ -1,17 +1,25 @@
+body {
+	background-color: #eee;
+}
+
 body, input, button {
 	font-family: Helvetica, sans-serif;
 	color: #555;
 }
 
 #wrap {
-	width: 350px;
-	margin: 0 auto;
+/*	width: 250px;*/
+	margin: 250px 0;
 	text-align: center;
 }
 
 h1#logo {
+	color: #bbb;
 	word-spacing: -0.1em;
 	letter-spacing: -0.04em;
+	text-shadow: 0 1px 0 #fff,
+				 0 -1px 0 rgba(0, 0, 0, 0.3);
+	margin: 0 0 6px 0;
 }
 
 input, button {
@@ -19,12 +27,13 @@ input, button {
 	border: 1px #ccc solid;
 	border-radius: 4px;
 	box-sizing: border-box;
-	padding: 1px 3px;
+	padding: 1px 6px;
 	font-size: .8em;
+	margin: 0 0 5px 0;
 }
 
 input {
-	width: 145px;
+	width: 175px;
 }
 
 button {

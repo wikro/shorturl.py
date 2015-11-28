@@ -8,7 +8,7 @@ def index():
 @app.route('/', methods=['POST'])
 def compress():
 	url = request.form['url']
-	if app.config['HOST'] in url:
+	if app.config['HOST'] in url or url == '':
 		return redirect(url_for('index'))
 
 	if '://' not in url:

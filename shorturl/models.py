@@ -1,11 +1,14 @@
 """Application models"""
-from .database import base, Column, Integer, String
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
-class URL(base):
+Base = declarative_base()
+
+class Url(Base):
 	"""URL model class"""
-	__tablename__ = "Urls"
-	Id = Column(Integer, primary_key=True)
-	Url = Column(String, nullable=False)
+	__tablename__ = "urls"
+	id = Column(Integer, primary_key=True)
+	url = Column(String, nullable=False)
 
 	def __init__(self, url):
-		self.Url = url
+		self.url = url

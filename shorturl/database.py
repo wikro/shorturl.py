@@ -1,17 +1,17 @@
 """Application database object"""
-from . import app
-from .config import DB_PATH
-
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
 
-engine = create_engine('sqlite:///%s' % DB_PATH)
+from . import app
+from .models import Base
+from .config import DATABASE_PATH
+
+engine = create_engine('sqlite:///%s' % DATABASE_PATH)
 maker = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 session = scoped_session(maker)
 
-base = declarative_base()
-base.query = session.query_property()
+Base.query = session.query_property()
+Base.metadata.create_all(bind=engine)
 
 @app.teardown_appcontext
 def teardown(exception):
@@ -19,7 +19,3 @@ def teardown(exception):
 	if exception is not None:
 		raise exception
 	session.remove()
-
-def init_db():
-	"""Initialize database"""
-	base.metadata.create_all(bind=engine)

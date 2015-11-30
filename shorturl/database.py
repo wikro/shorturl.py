@@ -1,15 +1,25 @@
+"""Application database object"""
 from . import app
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import scoped_session, sessionmaker
+from .config import DB_PATH
 
-engine = create_engine('sqlite:///%s' % app.config['DB_PATH'])
-session = sessionmaker(autocommit = False, autoflush = False, bind = engine)
-db_session = scoped_session(session)
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+engine = create_engine('sqlite:///%s' % DB_PATH)
+maker = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+session = scoped_session(maker)
 
 base = declarative_base()
-base.query = db_session.query_property()
+base.query = session.query_property()
+
+@app.teardown_appcontext
+def teardown(exception):
+	"""Remove database session after use"""
+	if exception is not None:
+		raise exception
+	session.remove()
 
 def init_db():
-	from . import models
-	base.metadata.create_all(bind = engine)
+	"""Initialize database"""
+	base.metadata.create_all(bind=engine)

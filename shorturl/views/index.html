@@ -1,21 +1,11 @@
 ﻿{% extends 'layout.html' %}
-{% block head %}
-<script type="text/javascript">
-	function check_paste() {
-		var url_input = document.getElementById('url');
-		var form = document.getElementById('form');
-
-		if(url_input.value == '') {
-			setTimeout(check_paste, 10);
-		} else {
-			form.submit();
-		}
-	}
-</script>
-{% endblock %}
 {% block content %}
 <form action="{{ url_for('index') }}" method="POST" id="form">
-	<input type="text" name="url" id="url" placeholder="type or paste url" onpaste="check_paste()" autofocus>
-	<button type="submit">go</button>
+	<input type="text" name="url" id="url" placeholder="type or paste url" onpaste="check_paste()" autofocus required>
+	<button type="submit">go</button><br/>
+<!-- 	<div class="slide">	
+	<input type="checkbox" value="None" id="slide" name="check" />
+	<label for="slide"></label> -->
+</div>
 </form>
 {% endblock %}

@@ -1,4 +1,10 @@
-Cloning, setting up and running
+1. Prerequisites
+
+	* Python 2.7
+	* Virtualenv
+	* Git
+
+2. Cloning, setting up and running
 
 	$ git clone https://wikro@bitbucket.org/wikro/shorturl.git
 	$ cd shorturl

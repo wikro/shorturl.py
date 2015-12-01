@@ -8,7 +8,6 @@ body, input[type="text"], button {
 }
 
 #wrap {
-/*	width: 250px;*/
 	margin: 250px 0;
 	text-align: center;
 }
@@ -20,6 +19,7 @@ h1#logo {
 	text-shadow: 0 1px 0 rgba(255,255,255,0.8),
 				 0 -1px 0 rgba(0, 0, 0, 0.3);
 	margin: 0 0 6px 0;
+	font-weight: normal;
 }
 
 input[type="text"], button {
@@ -33,7 +33,7 @@ input[type="text"], button {
 }
 
 input[type="text"] {
-	width: 175px;
+	width: 150px;
 }
 
 label {
@@ -48,43 +48,4 @@ button {
 
 button:active {
 	background: linear-gradient(to bottom, #ededed 0%,#f6f6f6 53%,#ffffff 100%);
-}
-
-input[type=checkbox] {
-	visibility: hidden;
-}
-
-/* SLIDE THREE */
-.slide {
-	content: '';
-	width: 46px;
-	height: 24px;
-	margin: 20px auto;
-	position: relative;
-	background: #ccc;
-	border-radius: 50px;
-	box-shadow: inset 0px 1px 0px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,0.8);
-}
-
-.slide label {
-	display: block;
-	width: 20px;
-	height: 20px;
-
-	border-radius: 50px;
-
-	transition: all .4s ease;
-	cursor: pointer;
-	position: absolute;
-	top: 2px;
-	left: 3px;
-	z-index: 1;
-
-	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3);
-	background: linear-gradient(to bottom, #ffffff 0%,#f6f6f6 47%,#ededed 100%);
-}
-
-.slide input[type=checkbox]:checked + label {
-	left: 23px;
-	background: linear-gradient(to bottom, #d2ff52 0%,#bef549 47%,#91e842 100%);
 }

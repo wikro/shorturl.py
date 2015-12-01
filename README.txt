@@ -6,7 +6,7 @@
 
 2. Cloning, setting up and running
 
-	$ git clone https://wikro@bitbucket.org/wikro/shorturl.git
+	$ git clone https://bitbucket.org/wikro/shorturl.git
 	$ cd shorturl
 	$ mkdir env
 	$ virtualenv env

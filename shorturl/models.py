@@ -1,8 +1,7 @@
 """Application models"""
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+from .core import Base
 
 class Url(Base):
 	"""URL model class"""

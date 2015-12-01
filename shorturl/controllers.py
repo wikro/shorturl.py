@@ -1,8 +1,8 @@
 """Application controllers"""
 from flask import render_template, redirect, request, url_for, abort
 
-from . import database, base62, models, app
-from .config import HOST, HOST_URL
+from .core import app
+from . import models, database, base62
 
 @app.route('/')
 def index():
@@ -13,7 +13,7 @@ def index():
 def compress():
 	"""Process and store URL in database, return database id in base62"""
 	url = request.form['url'].strip()
-	if HOST in url or url == '':
+	if app.config['HOST'] in url or url == '':
 		return redirect(url_for('index'))
 
 	if '://' not in url:
@@ -26,7 +26,7 @@ def compress():
 	short_url = base62.encode(new_entry.id)
 	short_url = url_for('expand', short_url=short_url)
 
-	short_url = '%s%s' % (HOST_URL, short_url)
+	short_url = '%s%s' % (app.config['HOST_URL'], short_url)
 
 	return render_template('compressed.html', short_url=short_url)
 

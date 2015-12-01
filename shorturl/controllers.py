@@ -11,7 +11,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def compress():
-	"""Process and store URL in database, return database id in base62"""
+	"""Process and store URL in database, return entry id in base62"""
 	url = request.form['url'].strip()
 	if app.config['HOST'] in url or url == '':
 		return redirect(url_for('index'))
@@ -32,7 +32,7 @@ def compress():
 
 @app.route('/<short_url>')
 def expand(short_url):
-	"""Decode base62 string and find an id match in the database"""
+	"""Decode base62 string and match decoded value with an id in the database"""
 	decoded_id = base62.decode(short_url)
 	try:
 		url = models.Url.query.get(decoded_id).url

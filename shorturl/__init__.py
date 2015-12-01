@@ -1,4 +1,4 @@
-"""Initialize flask app, do all necessary imports and set settings"""
+"""Do all necessary imports"""
 from . import core
 from . import config
 from . import models

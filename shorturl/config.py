@@ -1,4 +1,4 @@
-"""Module for getting and setting application settings"""
+"""Configure application settings"""
 from os.path import join as joinpath
 
 from .core import app

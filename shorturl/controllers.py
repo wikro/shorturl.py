@@ -17,7 +17,7 @@ def compress():
 		return redirect(url_for('index'))
 
 	if '://' not in url:
-		url = 'http://%s' % url
+		url = '%s://%s' % (app.config['SCHEMA'], url)
 
 	new_entry = models.Url(url)
 	database.session.add(new_entry)

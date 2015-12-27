@@ -1,7 +1,7 @@
 """Application controllers"""
 from flask import render_template, redirect, request, url_for, abort
 
-from .core import app
+from .shared import app
 from . import models, database, base62
 
 @app.route('/')
@@ -39,3 +39,4 @@ def expand(short_url):
 		return redirect(url)
 	except AttributeError:
 		abort(404)
+

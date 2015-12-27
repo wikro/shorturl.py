@@ -8,3 +8,4 @@ function check_paste() {
 		form.submit();
 	}
 }
+

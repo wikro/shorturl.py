@@ -26,3 +26,4 @@ def encode(number):
 		result = (DIGITS[number%BASE])+result
 		number = int(number/BASE)
 	return str(result)
+

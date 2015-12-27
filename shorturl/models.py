@@ -1,7 +1,7 @@
 """Application models"""
 from sqlalchemy import Column, Integer, String
 
-from .core import Base
+from .shared import Base
 
 class Url(Base):
 	"""URL model class"""
@@ -11,3 +11,4 @@ class Url(Base):
 
 	def __init__(self, url):
 		self.url = url
+

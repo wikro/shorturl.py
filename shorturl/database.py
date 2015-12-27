@@ -2,7 +2,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from .core import app, Base
+from .shared import app, Base
 
 engine = create_engine('sqlite:///%s' % app.config['DATABASE_PATH'])
 maker = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -17,3 +17,4 @@ def teardown(exception):
 	if exception is not None:
 		raise exception
 	session.remove()
+
